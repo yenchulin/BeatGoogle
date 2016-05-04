@@ -16,8 +16,9 @@ public class Score
 		
 		for (WebPage webPage : webPages)
 		{
+			try{
 			String html = Jsoup.connect(webPage.getUrl())
-					.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5)")
+					.userAgent("!"+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5)")
 					.get().text() + "!";
 			if (html.contains(keyword))
 			{
@@ -49,6 +50,9 @@ public class Score
 				}
 			}
 			webPage.setScore(score);
+			} catch(Exception e) {
+				
+			}
 		}
 		return webPages;
 	}

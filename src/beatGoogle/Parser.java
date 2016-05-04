@@ -27,12 +27,16 @@ public class Parser
 
 			for (Element gResult : gResultClass)
 			{
+				try{
 				WebPage webPage = new WebPage();
 				String wbName = gResult.select("a").get(0).text();
 				String wbUrl = gResult.select("a").get(0).attr("href");
 				webPage.setName(wbName);
 				webPage.setUrl(wbUrl);
 				wbps.add(webPage);
+				} catch (IndexOutOfBoundsException ex) {
+					// ...
+				}
 			}
 
 		

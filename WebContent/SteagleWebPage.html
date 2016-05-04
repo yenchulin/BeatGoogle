@@ -8,26 +8,23 @@
   <title>Bootstrap Theme Company</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapc dn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script>
 $(document).ready(function(){
     $("button").click(function(){
     	var key = $("#in").val();
-        $.ajax({
-        	url: "http://localhost:18080/Test/Steagle?q="+key, 
-        	success: function(result){
-        		var jsonObj = JSON.parse(result);
+        $.ajax({url: "http://localhost:18080/Test/Steagle?q="+key, success: function(result){
+        	var jsonObj = JSON.parse(result);
         	
-        		var table = "<table>"
-        		for(var i in jsonObj){
-        			table = table + "<tr><td><a href="+jsonObj[i].url+">"+jsonObj[i].name+"</a></td></tr>";
-        		}
-        		table += "</table>";
-            	$("#out").html(table);
+        	var table = "<table align='center'>"
+        	for(var i in jsonObj){
+        		table = table + "<tr><td><a href="+jsonObj[i].url+">"+jsonObj[i].name+"</a></td></tr>";
         	}
-        });
+        	table += "</table>";
+            $("#out").html(table);
+        }});
     });
 });
 </script>
@@ -43,12 +40,13 @@ $(document).ready(function(){
     overflow: hidden;
     color:#ffffff;
 }
+
   </style>
 
   <div class="jumbotron text-center">
     <div class="container">
     <h1>Steagle</h1> 
-    <p>A better searching engine</p>
+    <p>A better searching engine for steak</p>
       <form class="form-inline">
     <input type="text" id="in" class="form-control" size="50" placeholder="please type keywords"/>
         <button type="button" class="btn btn-danger">Search!</button>
@@ -61,3 +59,4 @@ $(document).ready(function(){
 
 </body>
 </html>
+    
