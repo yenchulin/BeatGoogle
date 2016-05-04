@@ -20,7 +20,7 @@ $(document).ready(function(){
         	success: function(result){
         		var jsonObj = JSON.parse(result);
         	
-        		var table = "<table>"
+        		var table = "<table align='center'>"
         		for(var i in jsonObj){
         			table = table + "<tr><td><a href="+jsonObj[i].url+">"+jsonObj[i].name+"</a></td></tr>";
         		}
